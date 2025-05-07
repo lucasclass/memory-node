@@ -4,17 +4,18 @@ const router = express.Router();
 // retorna todos os produtos
 router.get('/', (req, res, next) =>{
   res.status(200).send({
-    mensagem: 'Usando o GET de PRODUTOS'
+    mensagem: 'Retorna todos os produtos'
   })
 });
 
 // insere um produto
 router.post('/', (req, res, next) =>{
   res.status(201).send({
-    mensagem: 'Usando POST de PRODUTOS'
+    mensagem: 'Insere um produto'
   })
 });
 
+// retorna os dados de um produto
 router.get('/:id_produto', (req, res, next) =>{
   const id = req.params.id_produto
   
@@ -30,5 +31,19 @@ router.get('/:id_produto', (req, res, next) =>{
     })
   }
 })
+
+// altera um produto
+router.patch('/', (req, res, next) =>{
+  res.status(201).send({
+    mensagem: 'Produto alterado'
+  })
+});
+
+// deleta um produto
+router.delete('/', (req, res, next) =>{
+  res.status(201).send({
+    mensagem: 'Produto excluido'
+  })
+});
 
 module.exports = router;
